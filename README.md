@@ -4,4 +4,4 @@
 It should be an Neovim/Vim/VI copy, just because I want it portable (and being made entirely by me).
 
 # License
-(LICENSE)[LICENSE]
+[LICENSE](LICENSE)
