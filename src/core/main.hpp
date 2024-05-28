@@ -7,4 +7,3 @@
 #include <cstring>
 
 #endif // MAIN_HPP
-

@@ -1,5 +1,5 @@
-#include "main.hpp"
-#include "lib/file_handler.hpp"
+#include "core/main.hpp"
+#include "libs/file_handler.hpp"
 
 
 int main(int argc, char** argv) 
