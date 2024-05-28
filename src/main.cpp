@@ -16,7 +16,7 @@ int main(int argc, char** argv)
         char buffer[BUFFER_SIZE];
         
         if (!readFile(buffer, BUFFER_SIZE, path))
-            std::cout << buffer << std::endl;
+            std::cout << buffer;
         else
             return 1;
     }
