@@ -3,7 +3,19 @@
 
 #include <fstream>
 
+/* Saves `b_size` character of the content from a file at `path` to the buffer `buffer`
+ * Returns:
+ * 0 - successful
+ * 1 - could not open the file
+ */
 int readFile(char * buffer, const size_t b_size, const char * path);
+
+/* Saves a `buffer` with certain `b_size` to the file localized in `path`
+ * Returns:
+ * 0 - successful
+ * 1 - could not open the file
+ * 2 - write operation failed (file corruption)
+ */
 int writeFile(char * buffer, const size_t b_size, const char * path);
 
 #endif // FILE_HPP
