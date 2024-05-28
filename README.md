@@ -3,5 +3,11 @@
 
 It should be a Neovim/Vim/VI copy, just because I want it portable (and being made entirely by me).
 
+# To Do
+- [ ] Arguments Parser
+- [ ] Buffer Render
+- [ ] Buffer Manipulation
+- [ ] First commands (insert character, delete character, move carret, save, exit)
+
 # License
 [LICENSE](LICENSE)
