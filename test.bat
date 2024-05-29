@@ -1,4 +1,4 @@
-g++ src/main.cpp src/libs/file_handler.cpp -O3 -o main
+g++ src/main.cpp src/libs/file_handler.cpp src/libs/args_parser.cpp -O3 -o main
 
 pause
 
