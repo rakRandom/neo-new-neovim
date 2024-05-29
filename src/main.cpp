@@ -1,4 +1,5 @@
 #include "core/main.hpp"
+#include "libs/args_parser.hpp"
 #include "libs/file_handler.hpp"
 
 
