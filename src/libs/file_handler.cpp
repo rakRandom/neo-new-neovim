@@ -1,5 +1,4 @@
 #include "file_handler.hpp"
-#include <fstream>
 
 int readFile(char * buffer, const size_t n_char, const char * path)
 {

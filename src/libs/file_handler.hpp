@@ -1,6 +1,8 @@
 #ifndef FILE_HANDLER_HPP
 #define FILE_HANDLER_HPP
 
+#include <fstream>
+
 /* Saves `n_char` characters of the content from a file at `path` to the buffer `buffer`
  * Returns:
  * 0 - successful
