@@ -6,12 +6,13 @@ It should be a Neovim/Vim/VI copy, just because I want it portable (and being ma
 # To Do
 
 ## Main
-- [ ] Arguments Parser
+- [X] Arguments Parser
 - [ ] Buffer Render
 - [ ] Buffer Manipulation
 - [ ] First commands (insert character, delete character, move carret, save, exit)
 
 ## Secondary
+- [X] Python automation to compile the project
 - [ ] Vector Class (why? because I want to)
 
 # License
