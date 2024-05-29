@@ -1,12 +1,12 @@
 #ifndef FILE_HANDLER_HPP
 #define FILE_HANDLER_HPP
 
-/* Saves `b_size` character of the content from a file at `path` to the buffer `buffer`
+/* Saves `n_char` characters of the content from a file at `path` to the buffer `buffer`
  * Returns:
  * 0 - successful
  * 1 - could not open the file
  */
-int readFile(char * buffer, const size_t b_size, const char * path);
+int readFile(char * buffer, const size_t n_char, const char * path);
 
 /* Saves a `buffer` with certain `b_size` to the file localized in `path`
  * Returns:

@@ -1,13 +1,13 @@
 #include "file_handler.hpp"
 #include <fstream>
 
-int readFile(char * buffer, const size_t b_size, const char * path)
+int readFile(char * buffer, const size_t n_char, const char * path)
 {
     std::ifstream file(path);
     if (!file.is_open())
         return 1;
 
-    file.read(buffer, b_size);
+    file.read(buffer, n_char);
     file.close();
     return 0;
 }
