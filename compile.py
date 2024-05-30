@@ -6,7 +6,7 @@ import os
 
 
 def run():
-    executable_name: str = "main"
+    executable_name: str = "newvim"
     files_to_compile: list[str] = []
 
     for dirpath, _, filenames in os.walk("."):
