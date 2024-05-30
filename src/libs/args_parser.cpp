@@ -1,7 +1,7 @@
 #include "args_parser.hpp"
 #include <cstdlib>
 
-#define PTR_SIZE 64
+#define PTR_SIZE 64  // Quantity of values/options
 
 int verifyArgs(int argc) 
 {

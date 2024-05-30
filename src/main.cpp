@@ -1,7 +1,7 @@
 #include "core/main.hpp"
 #include "libs/args_parser.hpp"
 #include "libs/file_handler.hpp"
-
+#include "libs/buffer_render.hpp"
 
 int main(int argc, char** argv) 
 {
@@ -32,7 +32,7 @@ int main(int argc, char** argv)
         char buffer[BUFFER_SIZE];
         
         if (!readFile(buffer, BUFFER_SIZE, path))
-            std::cout << buffer;
+            renderBuffer(buffer);
         else
             return 1;
     }
