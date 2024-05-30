@@ -29,17 +29,19 @@ inline void splitLines(char dest[LINE_QT][COLUMN_QT], char * source, const char 
 
     for (int i = 0; i < strlen(source); i++)
     {
-        if (source[i] == (char) 10)
+        if (source[i] < (char) 32)
         {
-            line++;
-            column = 0;
+            if (source[i] == (char) 10)
+            {
+                line++;
+                column = 0;
+            }
+            else
+                break; // EOF character
         }
         else
         {
-            if (source[i] < (char) 33)
-                dest[line][column] = ' ';
-            else
-                dest[line][column] = source[i];
+            dest[line][column] = source[i];
             column++;
         }
     }
