@@ -1,6 +1,8 @@
 #ifndef TERMINAL_H
 #define TERMINAL_H
 
+#include <unistd.h>
+
 #define TC_NRM  "\x1B[0m"
 #define TC_RED  "\x1B[1;31m"
 #define TC_GRN  "\x1B[1;32m"
@@ -20,7 +22,7 @@
 #define TC_B_WHT  "\x1B[0;37m"
 
 #define TC_BG_NRM "\x1B[40m"
-#define TC_BG_RED " \x1B[41m"
+#define TC_BG_RED "\x1B[41m"
 #define TC_BG_GRN "\x1B[42m"
 #define TC_BG_YEL "\x1B[43m"
 #define TC_BG_BLU "\x1B[44m"
@@ -32,12 +34,7 @@
 
 #define tc_move_cursor(X, Y) printf("\033[%d;%dH", Y, X)
 
-void tc_get_cols_rows(int *cols, int *rows);
-
 #define tc_enter_alt_screen() puts("\033[?1049h\033[H")
 #define tc_exit_alt_screen() puts("\033[?1049l")
-
-void tc_echo_off();
-void tc_echo_on();
 
 #endif // TERMINAL_H

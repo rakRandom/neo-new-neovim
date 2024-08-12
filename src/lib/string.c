@@ -11,7 +11,7 @@ int str_resize(struct String * str, size_t size)
 
 void print_str(struct String * str) 
 {
-    for (size_t i = 0; i < str->size; i++) 
+    for (size_t i = 0; i < str->size; i+=2) 
     {
         putchar(str->buffer[i]);
     }

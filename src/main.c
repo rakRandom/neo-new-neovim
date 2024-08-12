@@ -8,6 +8,10 @@ int main(int argc, char** argv)
 {
     char *filename = argv[1];
     FILE *f;
+
+    tc_enter_alt_screen();
+    tc_clear_screen();
+    tc_move_cursor(0, 0);
     
     if(fopen_s(&f, filename, "r, ccs=UTF-8") == 0) 
     {
@@ -35,6 +39,11 @@ int main(int argc, char** argv)
 
         fclose(f);
     }
+
+    printf("\033[8m");
+    getchar();
+    printf("\033[0m");
+    tc_exit_alt_screen();
 
     return 0;
 }
