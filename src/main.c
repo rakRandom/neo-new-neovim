@@ -22,21 +22,15 @@ int main(int argc, char** argv)
         str.size = f_len = f_length(f);
         
         // Alloc memory to the buffer
-        if (str_resize(&str, f_len)) 
-        {
+        if (str_resize(&str, f_len)) {
             printf("Error: not enough memory (%lib)", str.size);
-            free(str.buffer);
-            fclose(f);
-            return 1;
+        } else {
+            // Read the file
+            r_file(str.buffer, f_len, f);
+            // Print the result
+            print_str(&str);
         }
-
-        // Read the file
-        r_file(str.buffer, f_len, f);
-        
-        // Print the result
-        print_str(&str);
         free(str.buffer);
-
         fclose(f);
     }
 
