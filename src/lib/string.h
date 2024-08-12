@@ -5,13 +5,6 @@
 
 // ==================== Definitions ====================
 
-struct String;
-
-int str_resize(struct String * str, size_t size); 
-void print_str(struct String * str); 
-
-// ==================== Code ====================
-
 /* 
   ## Definition
   Strucuture to hold a buffer and a size.
@@ -20,10 +13,7 @@ void print_str(struct String * str);
   ## Important
   If you allocate memory into the buffer, free it before the end of the program
 */
-struct String {
-    char * buffer;
-    size_t size;
-};
+struct String;
 
 /*
   ## Usage 
@@ -40,13 +30,7 @@ struct String {
   - `0` - Default OK;
   - `1` - Fail in allocating memory;
 */
-int str_resize(struct String * str, size_t size) 
-{
-    str->buffer = (char*) calloc(size, sizeof(char));
-    if (str->buffer == NULL)
-        return 1;
-    return 0;
-}
+int str_resize(struct String * str, size_t size); 
 
 /* 
   ## Usage
@@ -58,6 +42,23 @@ int str_resize(struct String * str, size_t size)
   ## Return values
   - `void` - Default OK;
 */
+void print_str(struct String * str); 
+
+// ==================== Code ====================
+
+struct String {
+    char * buffer;
+    size_t size;
+};
+
+int str_resize(struct String * str, size_t size) 
+{
+    str->buffer = (char*) calloc(size, sizeof(char));
+    if (str->buffer == NULL)
+        return 1;
+    return 0;
+}
+
 void print_str(struct String * str) 
 {
     for (size_t i = 0; i < str->size; i++) 
