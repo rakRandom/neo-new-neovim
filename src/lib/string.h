@@ -42,7 +42,7 @@ int str_resize(struct String * str, size_t size);
   - `str: struct String *` - String to be printed;
 
   ## Return values
-  - `void` - Default OK;
+  None
 */
 void print_str(struct String * str); 
 

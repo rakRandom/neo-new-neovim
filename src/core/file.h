@@ -3,13 +3,39 @@
 
 #include "main.h"
 
-// ====================  ====================
+// ==================== Definition ====================
 
+/*
+  ## Usage 
+  None 
+
+  ## Important 
+  None 
+
+  ## Parameters 
+  - ` ` - ; 
+
+  ## Return values 
+  - ` ` - ; 
+*/
 size_t f_length(FILE *f); 
+
+/*
+  ## Usage 
+  None 
+
+  ## Important 
+  None 
+
+  ## Parameters 
+  - ` ` - ; 
+
+  ## Return values 
+  - ` ` - ; 
+*/
 void r_file(char * buffer, size_t f_len, FILE *f); 
 
-
-// ====================  ====================
+// ==================== Code ====================
 
 size_t f_length(FILE *f) 
 {
@@ -28,6 +54,5 @@ void r_file(char * buffer, size_t f_len, FILE *f)
     fread(buffer, sizeof(char), f_len , f);
     buffer[f_len] = '\0';
 }
-
 
 #endif // FILE_H
