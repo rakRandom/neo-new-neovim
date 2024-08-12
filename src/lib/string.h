@@ -13,7 +13,10 @@
   ## Important
   If you allocate memory into the buffer, free it before the end of the program
 */
-struct String;
+struct String {
+    char * buffer;
+    size_t size;
+};
 
 
 /*
