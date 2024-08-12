@@ -1,5 +1,6 @@
 {
     "files.associations": {
+        "*.css": "tailwindcss",
         "array": "cpp",
         "atomic": "cpp",
         "bit": "cpp",
@@ -45,6 +46,12 @@
         "ostream": "cpp",
         "stdexcept": "cpp",
         "streambuf": "cpp",
-        "typeinfo": "cpp"
+        "typeinfo": "cpp",
+        "unistd.h": "c",
+        "format": "c",
+        "span": "c",
+        "terminal.h": "c",
+        "stdlib.h": "c",
+        "string.h": "c"
     }
 }
