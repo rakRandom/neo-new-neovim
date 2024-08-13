@@ -34,7 +34,7 @@ struct String {
   - `0` - Default OK;
   - `1` - Fail in allocating memory;
 */
-int str_resize(struct String * str, size_t size); 
+int str_copy(struct String * str, char * other_str, size_t size); 
 
 
 /* 
@@ -47,7 +47,13 @@ int str_resize(struct String * str, size_t size);
   ## Return values
   None
 */
-void print_str(struct String * str); 
+int print_str(struct String * str, int pos_x, int pos_y); 
+
+
+/*
+
+*/
+size_t count_char(struct String * str, char c); 
 
 
 #endif // STRING_H

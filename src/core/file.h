@@ -33,7 +33,10 @@ size_t f_length(FILE *f);
   ## Return values 
   - ` ` - ; 
 */
-void r_file(char * buffer, size_t f_len, FILE *f); 
+void f_read(char * buffer, size_t f_len, FILE *f); 
+
+
+
 
 // ==================== Code ====================
 
@@ -49,7 +52,7 @@ size_t f_length(FILE *f)
     return size;
 }
 
-void r_file(char * buffer, size_t f_len, FILE *f) 
+void f_read(char * buffer, size_t f_len, FILE *f) 
 {
     fread(buffer, sizeof(char), f_len , f);
     buffer[f_len] = '\0';
