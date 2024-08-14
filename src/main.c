@@ -61,12 +61,13 @@ int main(int argc, char** argv)
     }
 
     // Dividing the file buffer into separate strings
-    size_t line_count = count_char(file_buffer, '\n');
-    struct String * str_array = (struct String *) calloc(line_count + 1, sizeof(struct String));
+    size_t line_count = count_char(file_buffer, '\n') + 1;
+    struct String * str_array = (struct String *) calloc(line_count, sizeof(struct String));
     
-    for (size_t i = 0; i < line_count + 1; i++) {
+    for (size_t i = 0; i < line_count; i++) {
         if (str_alloc(&str_array[i], 256)) {
             printf("Error: not enough memory (256B)");
+            free(str_array);
             return -1;
         }
     }
@@ -105,11 +106,11 @@ int main(int argc, char** argv)
 
         int current_row = 2;
         for (size_t i = last_line_printed; i < last_line_printed + rows - 2; i++) {
-            printf("%li ", i + 1);
+            printf("%li", i + 1);
             print_str(&str_array[i], current_row, indentation);
             current_row++;
 
-            if (i == line_count) { 
+            if (i == line_count - 1) { 
                 putchar('\n'); 
                 break; 
             }
@@ -117,7 +118,7 @@ int main(int argc, char** argv)
         last_line_printed += rows - 2;
 
         pause();
-    } while(last_line_printed < line_count);
+    } while(last_line_printed <= line_count);
     
     // Program end
     tc_exit_alt_screen();
