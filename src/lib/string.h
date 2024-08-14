@@ -3,6 +3,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 
 /* 
@@ -15,8 +16,32 @@
 */
 struct String {
     char * buffer;
-    size_t size;
+    size_t length;
+    size_t capacity;
 };
+
+
+/*
+
+*/
+struct String * new_String(size_t initial_size); 
+
+
+/*
+if you get a pointer of it, you need to free it, isn't?
+*/
+void free_String(struct String * str); 
+
+
+/*
+*/
+int str_alloc(struct String * str, size_t new_capacity);
+
+
+/*
+returns the length of the String and also stores it
+*/
+size_t str_length(struct String * str);
 
 
 /*
