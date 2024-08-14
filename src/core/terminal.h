@@ -30,11 +30,25 @@
 #define TC_BG_CYN "\x1B[46m"
 #define TC_BG_WHT "\x1B[47m"
 
-#define tc_clear_screen() write(1, "\033[H\033[2J\033[3J", 11)
+#define tc_clear_screen()                \
+    write(1, "\033[H\033[2J\033[3J", 11) \
 
-#define tc_move_cursor(X, Y) printf("\033[%d;%dH", Y, X)
+#define tc_move_cursor(X, Y)             \
+    printf("\033[%d;%dH", Y, X)          \
 
-#define tc_enter_alt_screen() puts("\033[?1049h\033[H")
-#define tc_exit_alt_screen() puts("\033[?1049l")
+#define tc_enter_alt_screen()            \
+    puts("\033[?1049h\033[H")            \
+
+#define tc_exit_alt_screen()             \
+    puts("\033[?1049l")                  \
+
+#define reset_cursor()                   \
+    tc_clear_screen();                   \
+    tc_move_cursor(1, 0);                \
+
+#define pause()                          \
+    printf("\033[8m");                   \
+    getchar();                           \
+    printf("\033[0m");                   \
 
 #endif // TERMINAL_H

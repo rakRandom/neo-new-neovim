@@ -1,14 +1,12 @@
 #include "core/main.h"
 #include "core/terminal.h"
 #include "core/file.h"
+#include "core/utils.h"
 #include "lib/string.h"
 
-void reset_cursor() {
-    tc_clear_screen();
-    tc_move_cursor(1, 0);
-}
 
-void print_filename(char *filename, int columns) {
+void print_filename(char *filename, int columns) 
+{
     size_t len = strlen(filename);
 
     tc_move_cursor(1, 0);
@@ -24,36 +22,22 @@ void print_filename(char *filename, int columns) {
     printf(" \x1B[0m");
 }
 
-void pause() {
-    printf("\033[8m");
-    getchar();
-    printf("\033[0m");
-}
 
 int main(int argc, char** argv) 
 {
     // Getting terminal size
-    CONSOLE_SCREEN_BUFFER_INFO csbi;
-    int columns, rows;
+    int *terminal_size;
 
-    GetConsoleScreenBufferInfo(GetStdHandle(STD_OUTPUT_HANDLE), &csbi);
-    columns = csbi.srWindow.Right - csbi.srWindow.Left + 1;
-    rows = csbi.srWindow.Bottom - csbi.srWindow.Top + 1;
+    terminal_size = get_terminal_width_and_height();
+    int columns = terminal_size[0];
+    int rows = terminal_size[1];
 
     // File shit
     char *filename = argv[1];
     FILE *f;
-
-    // Terminal config
-    tc_enter_alt_screen();
-    reset_cursor();
-
-    // Print file name
-    print_filename(filename, columns);
     
     // More file shit
     struct String file_buffer;
-    int lines_printed = 0;
 
     if(fopen_s(&f, filename, "r, ccs=UTF-8") == 0) 
     {
@@ -98,7 +82,10 @@ int main(int argc, char** argv)
         }
     }
 
+    // Terminal config
+    tc_enter_alt_screen();
     
+    // Preparation to start printing
     char *line_count_as_string = (char*)malloc(64);
     int indentation = sprintf(line_count_as_string, "%li", line_count) + 2;
     if (line_count_as_string != NULL) {
@@ -129,6 +116,10 @@ int main(int argc, char** argv)
     // Program end
     tc_exit_alt_screen();
     free(file_buffer.buffer);
+
+    for (size_t i = 0; i < line_count + 1; i++) 
+        free(str_array[i].buffer);
+    free(str_array);
 
     return 0;
 }

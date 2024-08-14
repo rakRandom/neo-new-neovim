@@ -1,5 +1,4 @@
 #include "string.h"
-#include "array.h"
 
 
 int str_copy(struct String * str, char * other_str, size_t size) 
@@ -30,7 +29,8 @@ int print_str(struct String * str, int pos_x, int pos_y)
     return 0;
 }
 
-size_t count_char(struct String * str, char c) {
+size_t count_char(struct String * str, char c) 
+{
     size_t count = 0;
 
     for (size_t i = 0; i < str->size; i++) 
